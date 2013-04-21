@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="lib/map.js"></script>
+		<script type="text/javascript" src="lib/comaData.js"></script>
+		<script type="text/javascript" src="lib/gameLogic.js"></script>
+		<script type="text/javascript" src="lib/mainComaSet.js"></script>
+		<script type="text/javascript" src="main_test_js/test2.js"></script>
+		<script type="text/javascript" src="main_test_js/selectTest.js"></script>
+		<script type="text/javascript" src="main_test_js/moveTest.js"></script>
+	</head>
+	<body>
+		<div style="position:fixed;bottom:0px;z-index:10;background-color:#EEEEEE;">
+			position:<input type="text" id="positionValue"/>
+			<button onclick="selectPosition()">select</button>
+			position:<input type="text" id="movePointValue"/>
+			<button onclick="movePosition()">move</button>
+			<button onclick="setInitMapObject();testMapDisplay();">gameStart</button>
+			<span id="turnDiaplay"></span>
+		</div>
+		<div id="selectComa" style="position:absolute;left:0px;padding:30px;">selectComaField</div>
+		<div id="setcoma" style="position:absolute;left:300px;padding:30px;">setfield</div>
+		<div id="zone0Coma" style="position:absolute;left:700px;padding:30px;">zone0</div>
+		<div id="zone1Coma" style="position:absolute;left:1000px;padding:30px;">zone1</div>
+	</body>
+</html>
