@@ -11,4 +11,5 @@ function selectStockTest(camp, number) {
 function setStockTest(x, y, z) {
   setComaObjectInMap(x, y, z);
   testMapDisplay();
+  return true;
 }
