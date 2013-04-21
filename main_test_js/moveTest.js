@@ -13,8 +13,6 @@ function movePosition(){
   }else if(isNaN(positionZ)){
     return alert("zの値が半角数字じゃないです");
   }
-  alert("x="+positionX+",y="+positionY+",z="+positionZ);
   var selobj = moveComaObject(positionX,positionY,positionZ);
   testMapDisplay();
-
 }
