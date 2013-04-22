@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>3D将棋 空将</title>
 		<script type="text/javascript" src="lib/map.js"></script>
 		<script type="text/javascript" src="lib/comaData.js"></script>
 		<script type="text/javascript" src="lib/gameLogic.js"></script>
 		<script type="text/javascript" src="lib/mainComaSet.js"></script>
-		<script type="text/javascript" src="main_test_js/test2.js"></script>
 		<script type="text/javascript" src="main_test_js/selectTest.js"></script>
 		<script type="text/javascript" src="main_test_js/moveTest.js"></script>
 		<script type="text/javascript" src="main_test_js/stockTest.js"></script>
 		<script type="text/javascript" src="main_test_js/gameStratTest.js"></script>
+		<script type="text/javascript" src="main_test_js/test2.js"></script>
 	</head>
 	<body>
 		<div style="position:fixed;bottom:0px;z-index:10;background-color:#EEEEEE;">
@@ -20,11 +20,15 @@
 			position:<input type="text" id="movePointValue"/>
 			<button onclick="movePosition()">move</button>
 			<span id="turnDiaplay"></span>
-			<button onclick="gameStartTest();" style="posision:absolute;">gameStart</button>
+		</div>
+		<div style="position:fixed;top:40px;right:0px;">
+			<button onclick="gameStartTest();" style="">gameReset</button></br>
+			<button onclick="" style="">Save</button></br>
+			<button onclick="" style="">Load</button></br>
 		</div>
 		<!--div id="selectComa" style="position:fixed;left:0px;padding:30px;">selectComaField</div-->
-		<div id="setcoma" style="position:absolute;left:0px;padding:30px;">setfield</div>
-		<div id="zone0Coma" style="position:fixed;left:800px;padding:30px;">zone0</div>
-		<div id="zone1Coma" style="position:fixed;left:1100px;padding:30px;">zone1</div>
+		<div id="setcoma" style="position:absolute;left:0px;padding:30px;">空盤</div>
+		<div id="zone0Coma" style="position:fixed;left:800px;padding:30px;">先手持駒</div>
+		<div id="zone1Coma" style="position:fixed;left:1100px;padding:30px;">後手持駒</div>
 	</body>
 </html>

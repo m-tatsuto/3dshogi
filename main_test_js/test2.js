@@ -5,22 +5,23 @@ function testMapDisplay(){
   var selectObj = null;
   var count = 0;
 
-  document.getElementById("setcoma").innerHTML = "setfield</br>";
+  document.getElementById("setcoma").innerHTML = "空盤</br>";
 
   var tableHtmlSource = "";
 
   for(var i = 0; i < 9; i++){
     tableHtmlSource = "";
-    tableHtmlSource += "z = " + i +" </br>";
     tableHtmlSource += "<table border='1' cellspacing='0' cellpadding='5' >\n";
+    tableHtmlSource += "<tr><th colspan='9'>" + (8 - i) +"層 </th></tr>";
 
     for(var j = 0; j < 9; j++){
       tableHtmlSource += "<tr>\n";
 
       for(var h = 0; h < 9; h++){
         var positionX = h;
-        var positionY = 8-j;
-        var positionZ = i;
+        //var positionY = turncamp ? j : (8 - j);
+        var positionY = 8 - j;
+        var positionZ = 8 - i;
         selectObj = mainGameField.map.cell3d[positionX][positionY][positionZ];
 
         var selectDomComaObjectParam = positionX + ',' + positionY + ',' + positionZ;
@@ -55,13 +56,13 @@ function testMapDisplay(){
       tableHtmlSource += "</tr>\n";
     }
     tableHtmlSource += "</table>\n";
-    document.getElementById("setcoma").innerHTML += tableHtmlSource;
+    document.getElementById("setcoma").innerHTML += tableHtmlSource + "</br>";
   }
 
   var zone0 = mainGameField.zone0;
   var zone1 = mainGameField.zone1;
 
-  document.getElementById("zone0Coma").innerHTML = "zone0 </br>";
+  document.getElementById("zone0Coma").innerHTML = "先手持駒 </br>";
 
   var zone0Len = zone0.stock.length;
   for (var i = 0; i < zone0Len; i++){
@@ -69,7 +70,7 @@ function testMapDisplay(){
     document.getElementById("zone0Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone0.stock[i].name + zone0.stock[i].camp + "</button></br>";
   }
 
-  document.getElementById("zone1Coma").innerHTML = "zone1 </br>";
+  document.getElementById("zone1Coma").innerHTML = "後手持駒 </br>";
 
   var zone1Len = zone1.stock.length;
   for (var i = 0; i < zone1Len; i++){
@@ -77,7 +78,14 @@ function testMapDisplay(){
     document.getElementById("zone1Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone1.stock[i].name + zone1.stock[i].camp + "</button></br>";
   }
 
-  document.getElementById("turnDiaplay").innerHTML = "turn=" + turncamp;
+  var turnString = "";
+  if (turncamp == 0) {
+    turnString = "先手";
+  } else if (turncamp == 1) {
+    turnString = "後手";
+  }
+
+  document.getElementById("turnDiaplay").innerHTML = turnString;
 }
 
 function selectDomComaObject(x, y, z) {
@@ -85,6 +93,9 @@ function selectDomComaObject(x, y, z) {
   selectPosition();
 }
 
+/**
+ * 選択した駒を動かす
+ */
 function moveDomComaObject(x, y, z) {
   document.getElementById("movePointValue").value = x + "" + y + "" + z;
   if (confirm(x + "" + y + "" + z + "に移動しますか？")) {
@@ -92,11 +103,16 @@ function moveDomComaObject(x, y, z) {
   }
 }
 
+/**
+ * 選択した駒をMapにセットする
+ */
 function setDomStockComaObject(x, y, z) {
   if (confirm(x + "" + y + "" + z + "に置きますか？")) {
     setStockTest(x, y, z);
   }
 }
+
+window.addEventListener("DOMContentLoaded", gameStartTest, false);
 
 function startTestMapDisplay(){
   setTimeout(function(){
