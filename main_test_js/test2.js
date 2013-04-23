@@ -42,7 +42,11 @@ function testMapDisplay(){
 
 
         if(selectObj !== null){
-          tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
+	  if (selectObj.camp == 0) {	
+          tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='sentecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
+	  } else if (selectObj.camp == 1) {
+          tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='gotecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
+	  }
           selectObj = null;
         } else {
           if(selectStockFlag) {
@@ -85,7 +89,8 @@ function testMapDisplay(){
     turnString = "後手";
   }
 
-  document.getElementById("turnDiaplay").innerHTML = turnString;
+  document.getElementById("turnDiplay").innerHTML = turnString;
+  return true;
 }
 
 function selectDomComaObject(x, y, z) {
