@@ -95,8 +95,8 @@ function testMapDisplay(){
 
 function selectDomComaObject(x, y, z) {
   addObjectSelectPosition( x, y, z );	
-  document.getElementById("positionValue").value = x + "" + y + "" + z;
-  selectPosition();
+  document.getElementById("positionValue").innerHTML = x + "" + y + "" + z;
+  selectPosition( x, y, z );
   addObjectMoveablePosition();
   setThreeJs3dMapObject();
 }
@@ -105,9 +105,8 @@ function selectDomComaObject(x, y, z) {
  * 選択した駒を動かす
  */
 function moveDomComaObject(x, y, z) {
-  document.getElementById("movePointValue").value = x + "" + y + "" + z;
   if (confirm(x + "" + y + "" + z + "に移動しますか？")) {
-    movePosition();
+    movePosition( x, y, z );
   }
   resetObjectSelect();	
   resetObjectMoveablePosition();

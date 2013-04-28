@@ -10,20 +10,17 @@
 		<script type="text/javascript" src="lib/gameLogic.js"></script>
 		<script type="text/javascript" src="lib/mainComaSet.js"></script>
 		<script type="text/javascript" src="main_test_js/selectTest.js"></script>
-		<script type="text/javascript" src="main_test_js/moveTest.js"></script>
 		<script type="text/javascript" src="main_test_js/stockTest.js"></script>
 		<script type="text/javascript" src="main_test_js/gameStratTest.js"></script>
-		<script type="text/javascript" src="main_test_js/saveTest.js"></script>
+		<script type="text/javascript" src="main_test_js/saveTestThreeJs.js"></script>
+		<script type="text/javascript" src="main_test_js/moveTestThreeJs.js"></script>
 		<script type="text/javascript" src="main_test_js/testThreeJs.js"></script>
 		<script type="text/javascript" src="threeJs_lib/three.min.js"></script>
 	</head>
 	<body>
-        <div style="position:fixed;bottom:0px;z-index:10;background-color:#EEEEEE;">
-			position:<input type="text" id="positionValue"/>
-			<button onclick="selectPosition()">select</button>
-			position:<input type="text" id="movePointValue"/>
-			<button onclick="movePosition()">move</button>
+		<div style="position:fixed;bottom:0px;z-index:10;background-color:#EEEEEE;">
 			<span id="turnDiplay"></span>
+			SelectPosition:<span id="positionValue" ></span>
 		</div>
 		<div style="position:fixed;bottom:0px;right:0px;">
 			<button onclick="gameStartTest();" style="">gameReset</button>
@@ -44,6 +41,7 @@
 		<div id="zone0Coma" style="position:fixed;left:950px;padding:30px;">先手持駒</div>
 		<div id="zone1Coma" style="position:fixed;left:1100px;padding:30px;">後手持駒</div>
 
+		<script type="text/javascript" src="threeJs_lib/threeJs_objectModel.js"></script>
 		<script type="text/javascript" src="threeJs_lib/threeJs_viewController.js"></script>
 		<script type="text/javascript" src="threeJs_lib/threeJs_main.js"></script>
 	</body>
