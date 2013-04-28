@@ -4,4 +4,5 @@ function gameStartTest(){
 	selectStockFlag = false;
 	setInitMapObject();
 	testMapDisplay();
+	setThreeJs3dMapObject();
 }

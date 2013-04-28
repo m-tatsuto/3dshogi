@@ -15,17 +15,12 @@ function selectPosition(){
     return alert("zの値が半角数字じゃないです");
   }
 
-  selectComaObject(positionX,positionY,positionZ);
+  var successFlag = selectComaObject(positionX,positionY,positionZ);
 
-  /*
-  var selectlen = selobj.moveablePoint.length;
-  document.getElementById("selectComa").innerHTML = "selectComaField</br>";
-  document.getElementById("selectComa").innerHTML += " number of moveable points = "+selectlen + "<br>";
-
-  for(var i=0;i<selectlen;i++){
-    document.getElementById("selectComa").innerHTML += selobj.moveablePoint[i] + "<br>";
+  if ( !successFlag ) {
+    touchComaObject = null;
+    selectStockFlag = false;
   }
-  */
 
   nowSelectPosition[0] = positionX;
   nowSelectPosition[1] = positionY;

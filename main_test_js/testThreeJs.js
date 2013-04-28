@@ -94,8 +94,11 @@ function testMapDisplay(){
 }
 
 function selectDomComaObject(x, y, z) {
+  addObjectSelectPosition( x, y, z );	
   document.getElementById("positionValue").value = x + "" + y + "" + z;
   selectPosition();
+  addObjectMoveablePosition();
+  setThreeJs3dMapObject();
 }
 
 /**
@@ -106,6 +109,9 @@ function moveDomComaObject(x, y, z) {
   if (confirm(x + "" + y + "" + z + "に移動しますか？")) {
     movePosition();
   }
+  resetObjectSelect();	
+  resetObjectMoveablePosition();
+  setThreeJs3dMapObject();
 }
 
 /**

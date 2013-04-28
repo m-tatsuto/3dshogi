@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<title>3D将棋 空将</title>
 		<link rel="stylesheet" href="css/coma.css" />
+		<link rel="stylesheet" href="threeJs_lib/threeJs_style.css" />
 		<script type="text/javascript" src="lib/map.js"></script>
 		<script type="text/javascript" src="lib/comaData.js"></script>
 		<script type="text/javascript" src="lib/gameLogic.js"></script>
@@ -13,7 +14,8 @@
 		<script type="text/javascript" src="main_test_js/stockTest.js"></script>
 		<script type="text/javascript" src="main_test_js/gameStratTest.js"></script>
 		<script type="text/javascript" src="main_test_js/saveTest.js"></script>
-		<script type="text/javascript" src="main_test_js/test2.js"></script>
+		<script type="text/javascript" src="main_test_js/testThreeJs.js"></script>
+		<script type="text/javascript" src="threeJs_lib/three.min.js"></script>
 	</head>
 	<body>
         <div style="position:fixed;bottom:0px;z-index:10;background-color:#EEEEEE;">
@@ -30,7 +32,18 @@
 		</div>
 		<!--div id="selectComa" style="position:fixed;left:0px;padding:30px;">selectComaField</div-->
 		<div id="setcoma" style="position:absolute;left:0px;padding:30px;">空盤</div>
-		<div id="zone0Coma" style="position:fixed;left:800px;padding:30px;">先手持駒</div>
+		<div style="position:fixed;left:400px;padding:30px;" id="space3d">
+			<button onclick="swichXview()">Rotation</button>
+			<button onclick="doCameraForward()">Zoom</button>
+			<button onclick="doCameraBackward()">Back</button>
+			<button onclick="doStop()">Stop</button>
+			<button onclick="focusCameraZone0()">CameraZone0</button>
+			<button onclick="focusCameraZone1()">CameraZone1</button></br>
+		</div>
+		<div id="zone0Coma" style="position:fixed;left:950px;padding:30px;">先手持駒</div>
 		<div id="zone1Coma" style="position:fixed;left:1100px;padding:30px;">後手持駒</div>
+
+		<script type="text/javascript" src="threeJs_lib/threeJs_viewController.js"></script>
+		<script type="text/javascript" src="threeJs_lib/threeJs_main.js"></script>
 	</body>
 </html>
