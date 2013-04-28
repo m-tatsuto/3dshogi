@@ -2,6 +2,9 @@ var AroundlineColor = 0x0000ff;
 var InnerlineColor = 0x00ffff;
 var camera, scene, renderer;
 var geometry, material, mesh;
+var lineZGeometry;
+var lineZMaterial;
+var lineZ;
 var lineZ1Geometry, lineZ1Material, lineZ1;
 var lineZ2Geometry, lineZ2Material, lineZ2;
 var lineZ3Geometry, lineZ3Material, lineZ3;
@@ -386,7 +389,8 @@ function setThreeJs3dMapObject() {
 						objectColor = 0x0000ff;
 					}
 
-					var geometry = new THREE.CubeGeometry( 50, 50, 50 );
+					var geometry = choiceGeometry( mapObject );
+					//var geometry = new THREE.SphereGeometry( 30 );
 					mapComa3DObject[ numberOfMapObject ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: objectColor, opacity: 0.7 } ) );
 					mapComa3DObject[ numberOfMapObject ].position.x = -400 + ( c3xi * 100 );
 					mapComa3DObject[ numberOfMapObject ].position.y = -400 + ( c3yj * 100 );
@@ -407,6 +411,61 @@ function setThreeJs3dMapObject() {
 
 }
 
+function choiceGeometry( comaObj ) {
+	var comaGeomety = null;
+
+	switch( comaObj.name ) {
+		case "歩" :
+			comaGeomety = new THREE.CubeGeometry( 30, 30, 30 );
+			break;
+
+		case "桂馬" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "香車" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "銀" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "金" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "成金" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "飛車" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "竜" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "角" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "馬" :
+			comaGeomety = new THREE.CubeGeometry( 50, 50, 50 );
+			break;
+
+		case "玉" :
+			comaGeomety = new THREE.SphereGeometry( 50 );
+			break;
+
+		case "王" :
+			comaGeomety = new THREE.SphereGeometry( 50 );
+			break;
+	}
+	return comaGeomety;
+}
+
 animate();
 
 var radius = 1000;
@@ -416,9 +475,19 @@ function animate() {
 	// note: three.js includes requestAnimationFrame shim
 	requestAnimationFrame( animate );
 	if(xcontroller){
-		//rotationX();
-		//camera.position.x += 5;
 		theta += 1;
+		cameraRotation();
+	}
+
+	if(xcontrollerRight){
+		theta += 1;
+		cameraRotation();
+	}
+
+	if(xcontrollerLeft){
+		theta -= 1;
+		console.debug(theta);
+		if (theta <= 180 ) { theta = 540; }
 		cameraRotation();
 	}
 
