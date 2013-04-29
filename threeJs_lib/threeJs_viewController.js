@@ -1,12 +1,7 @@
-var xcontroller = false;
 var xcontrollerRight = false;
 var xcontrollerLeft = false;
 var cameraForward = false;
 var cameraBackward = false;
-
-function swichXview(){
-	xcontroller ? xcontroller = false : xcontroller = true;
-}
 
 function swichXviewRight(){
 	xcontrollerLeft = false;
@@ -18,16 +13,18 @@ function swichXviewLeft(){
 }
 
 function doCameraForward(){
-	cameraForward = true;
+	cameraForward ? cameraForward = false : cameraForward = true;
 	cameraBackward = false;
 }
 
 function doCameraBackward(){
-	cameraBackward = true;
+	cameraBackward ? cameraBackward = false : cameraBackward = true;
 	cameraForward = false;
 }
 
 function doStop(){
+	xcontrollerRight = false;
+	xcontrollerLeft = false;
+	cameraForward = false;
 	cameraBackward = false;
-	cameraForward = false
 }

@@ -19,8 +19,8 @@ function testMapDisplay(){
 
       for(var h = 0; h < 9; h++){
         var positionX = h;
-        //var positionY = turncamp ? j : (8 - j);
-        var positionY = 8 - j;
+        var positionY = focusViewFlag ? j : (8 - j);
+        //var positionY = 8 - j;
         var positionZ = 8 - i;
         selectObj = mainGameField.map.cell3d[positionX][positionY][positionZ];
 
@@ -42,9 +42,9 @@ function testMapDisplay(){
 
 
         if(selectObj !== null){
-	  if (selectObj.camp == 0) {	
+	  if ( ( ( selectObj.camp == 0 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 1 ) && ( focusViewFlag == 1 ) ) ) {	
           tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='sentecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
-	  } else if (selectObj.camp == 1) {
+	  } else if ( ( ( selectObj.camp == 1 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 0 ) && ( focusViewFlag == 1 ) ) ) {
           tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='gotecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
 	  }
           selectObj = null;
