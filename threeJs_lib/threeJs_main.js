@@ -1,6 +1,6 @@
 var AroundlineColor = 0x0000ff;
 var InnerlineColor = 0x00ffff;
-var comaObjectOpacity = 0.9;
+var comaObjectOpacity = 1.0;
 var camera, scene, renderer;
 var geometry, material, mesh;
 var animate_is_update = true;
@@ -12,7 +12,7 @@ var mapComa3DObject = [];
 
 
 var cameraWidth = 600;
-var cameraHeight = 700;
+var cameraHeight = 600;
 
 init();
 
@@ -153,7 +153,6 @@ function choiceGeometry( comaObj, objectColor ) {
 
   switch( comaObj.name ) {
     case "歩" :
-      //comaGeometry = new THREE.CubeGeometry( 30, 30, 30 );
       comaGeometry = new THREE.SphereGeometry( 15 );
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
@@ -263,7 +262,7 @@ function animate() {
 
   if(xcontrollerLeft){
     theta -= 3.5;
-    if (theta <= 180 ) { theta = 540; }
+    if (theta <= 180 ) { theta = 543; }
     cameraRotation();
     animate_is_update = true;
   }

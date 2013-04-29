@@ -42,11 +42,11 @@ function testMapDisplay(){
 
 
         if(selectObj !== null){
-	  if ( ( ( selectObj.camp == 0 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 1 ) && ( focusViewFlag == 1 ) ) ) {	
-          tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='sentecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
-	  } else if ( ( ( selectObj.camp == 1 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 0 ) && ( focusViewFlag == 1 ) ) ) {
-          tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='gotecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
-	  }
+          if ( ( ( selectObj.camp == 0 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 1 ) && ( focusViewFlag == 1 ) ) ) {  
+            tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='sentecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
+          } else if ( ( ( selectObj.camp == 1 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 0 ) && ( focusViewFlag == 1 ) ) ) {
+            tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='gotecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
+          }
           selectObj = null;
         } else {
           if(selectStockFlag) {
@@ -94,7 +94,7 @@ function testMapDisplay(){
 }
 
 function selectDomComaObject(x, y, z) {
-  addObjectSelectPosition( x, y, z );	
+  addObjectSelectPosition( x, y, z );  
   document.getElementById("positionValue").innerHTML = x + "" + y + "" + z;
   selectPosition( x, y, z );
   addObjectMoveablePosition();
@@ -108,7 +108,7 @@ function moveDomComaObject(x, y, z) {
   if (confirm(x + "" + y + "" + z + "に移動しますか？")) {
     movePosition( x, y, z );
   }
-  resetObjectSelect();	
+  resetObjectSelect();  
   resetObjectMoveablePosition();
   setThreeJs3dMapObject();
 }
@@ -119,6 +119,14 @@ function moveDomComaObject(x, y, z) {
 function setDomStockComaObject(x, y, z) {
   if (confirm(x + "" + y + "" + z + "に置きますか？")) {
     setStockTest(x, y, z);
+  }
+}
+
+function gameRestart() {
+  if (confirm( "ゲームをリセットしますか？" )) {
+    gameStartTest();
+    resetObjectSelect();  
+    resetObjectMoveablePosition();
   }
 }
 
