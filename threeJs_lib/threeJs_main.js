@@ -17,9 +17,9 @@ var cameraHeight = 600;
 init();
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 100, cameraWidth / cameraHeight, 1, 10000 );
+  camera = new THREE.PerspectiveCamera( 30, cameraWidth / cameraHeight, 1, 10000 );
   camera.position.x = 0;
-  camera.position.y = -1000;
+  camera.position.y = -2500;
   camera.position.z = 0;
   camera.lookAt({x:0,y:0,z:0});
   camera.rotation.z = 0;
@@ -247,7 +247,7 @@ function choiceGeometry( comaObj, objectColor ) {
 
 animate();
 
-var radius = 1000;
+var radius = 2500;
 var theta = 270;
 
 function animate() {
