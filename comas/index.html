@@ -6,35 +6,36 @@
 		<link rel="stylesheet" href="css/coma.css" />
 		<link rel="stylesheet" href="css/buttons.css" />
 		<link rel="stylesheet" href="css/threeJsMap.css" />
-		<link rel="stylesheet" href="threeJs_lib/threeJs_style.css" />
 		<script type="text/javascript" src="lib/map.js"></script>
 		<script type="text/javascript" src="lib/comaData.js"></script>
 		<script type="text/javascript" src="lib/gameLogic.js"></script>
-		<script type="text/javascript" src="lib/mainComaSet.js"></script>
+		<script type="text/javascript" src="lib/explainComaSet.js"></script>
 		<script type="text/javascript" src="main_test_js/selectTest.js"></script>
-		<script type="text/javascript" src="main_test_js/stockTest.js"></script>
 		<script type="text/javascript" src="main_test_js/gameStratTest.js"></script>
-		<script type="text/javascript" src="main_test_js/saveTestThreeJs.js"></script>
 		<script type="text/javascript" src="main_test_js/moveTestThreeJs.js"></script>
 		<script type="text/javascript" src="main_test_js/testThreeJs.js"></script>
 		<script type="text/javascript" src="threeJs_lib/three.min.js"></script>
 	</head>
 	<body>
 		<div style="position:fixed;top:0px;z-index:10;background-color:#EEEEEE;">
-			<a href="comas" class="button blue">各駒動き</a>
-			<span id="turnDiplay"></span>
+			<span id="turnDiplay" style="display:none;"></span>
+			<a href="../index.html" class="button red">TOP</a>
 			SelectPosition:<span id="positionValue" ></span>
-		</div>
-		<div style="position:fixed;bottom:0px;right:0px;z-index:1;">
-			<span>Copyright (c) 2013 3dshougi developer</span>
-			<button onclick="gameRestart();" style="" class="button red">はじめから</button>
-			<button onclick="loadTest();" style="" class="button blue">つづきから</button>
-			<button onclick="saveTest();" style="" class="button green">保存</button>
 		</div>
 
 		<div id="setcoma" style="position:absolute;left:0px;padding:30px;">空盤</div>
-		<div id="zone0Coma" style="position:fixed;left:400px;margin:15px;padding:5px;border: 1px solid;">先手持駒</div>
-		<div id="zone1Coma" style="position:fixed;left:500px;margin:15px;padding:5px;border: 1px solid;">後手持駒</div>
+		<div id="comaButtons" style="position:fixed;left:400px;margin:15px;padding:5px;">
+			<a href="?coma=fu" class="button glay">歩</a></br></br>
+			<a href="?coma=keima" class="button glay">桂馬</a></br></br>
+			<a href="?coma=kyosha" class="button glay">香車</a></br></br>
+			<a href="?coma=gin" class="button glay">銀</a></br></br>
+			<a href="?coma=kin" class="button glay">金</a></br></br>
+			<a href="?coma=hisha" class="button glay">飛車</a></br></br>
+			<a href="?coma=ryu" class="button glay">竜</a></br></br>
+			<a href="?coma=kaku" class="button glay">角</a></br></br>
+			<a href="?coma=uma" class="button glay">馬</a></br></br>
+			<a href="?coma=gyoku" class="button glay">玉</a></br></br>
+		</div>
 
 		<div style="position:fixed;left:600px;padding:20px;" align="center">
 			<button onclick="focusCameraZone0()" class="button red">先手側</button>
