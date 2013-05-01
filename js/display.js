@@ -1,7 +1,7 @@
 /**
  * テスト用マップ描画
  */
-function testMapDisplay(){
+function mapControllerDisplay(){
   var selectObj = null;
   var count = 0;
 
@@ -124,10 +124,10 @@ function setDomStockComaObject(x, y, z) {
 
 function gameRestart() {
   if (confirm( "ゲームをリセットしますか？" )) {
-    gameStartTest();
+    mainGameStart();
     resetObjectSelect();  
     resetObjectMoveablePosition();
   }
 }
 
-window.addEventListener("DOMContentLoaded", gameStartTest, false);
+window.addEventListener("DOMContentLoaded", mainGameStart, false);

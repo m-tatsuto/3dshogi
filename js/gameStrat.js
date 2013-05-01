@@ -1,8 +1,8 @@
-function gameStartTest(){
+function mainGameStart(){
 	turncamp = 0;
 	touchComaObject = null;
 	selectStockFlag = false;
 	setInitMapObject();
-	testMapDisplay();
+	mapControllerDisplay();
 	setThreeJs3dMapObject();
 }

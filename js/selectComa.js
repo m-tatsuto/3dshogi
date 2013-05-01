@@ -16,5 +16,5 @@ function selectPosition( spx, spy, spz ){
   nowSelectPosition[1] = positionY;
   nowSelectPosition[2] = positionZ;
 
-  testMapDisplay();
+  mapControllerDisplay();
 }

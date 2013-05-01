@@ -321,12 +321,12 @@ function focusCameraZone0() {
   theta = 270;
   cameraRotation();
   focusViewFlag = 0;
-  testMapDisplay()
+  mapControllerDisplay()
 }
 
 function focusCameraZone1() {
   theta = 450;
   cameraRotation();
   focusViewFlag = 1;
-  testMapDisplay();
+  mapControllerDisplay();
 }

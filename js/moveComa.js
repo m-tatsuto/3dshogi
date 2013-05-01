@@ -4,5 +4,5 @@ function movePosition( mpx, mpy, mpz ){
   var positionZ = mpz;
   document.getElementById("positionValue").innerHTML = "";
   var selobj = moveComaObject( mpx, mpy, mpz );
-  testMapDisplay();
+  mapControllerDisplay();
 }

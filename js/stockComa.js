@@ -6,7 +6,7 @@ function selectStockTest(camp, number) {
     return false;
   }
   selectStockComaObj(number);
-  testMapDisplay();
+  mapControllerDisplay();
   setThreeJs3dMapObject();
   return true;
 }
@@ -15,7 +15,7 @@ function setStockTest(x, y, z) {
   var successFlag = setComaObjectInMap(x, y, z);
   resetObjectSelect();
   resetObjectMoveablePosition();
-  testMapDisplay();
+  mapControllerDisplay();
   setThreeJs3dMapObject();
   return true;
 }

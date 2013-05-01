@@ -1,4 +1,4 @@
-function saveTest() {
+function saveGame() {
   if (confirm("途中経過を保存しますか？前保存したデータは消えてしまいます")) {
     mainGameField.turn = turncamp;
     mainGameField.timestamp = new Date();
@@ -9,12 +9,12 @@ function saveTest() {
   }
 }
 
-function loadTest() {
+function loadGame() {
   if (confirm("前回保存したゲームを復元しますか？現在のゲームは終了しまいます")) {
     mainGameField = JSON.parse(window.localStorage.mapInstance);
     turncamp = mainGameField.turn;
     touchComaObject = null;
-    testMapDisplay();
+    mapControllerDisplay();
     setThreeJs3dMapObject();
     resetObjectSelect();	
     resetObjectMoveablePosition();
