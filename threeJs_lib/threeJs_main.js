@@ -39,7 +39,7 @@ function addObjectSelectPosition( x, y, z ) {
   resetObjectSelect();
 
   var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-  select3DObject = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x999900, opacity: 0.7 } ) );
+  select3DObject = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x999900, opacity: 0.4 } ) );
   select3DObject.position.x = -400 + ( x * 100 );
   select3DObject.position.y = -400 + ( y * 100 );
   select3DObject.position.z = -400 + ( z * 100 );
@@ -73,7 +73,7 @@ function addObjectMoveablePosition() {
   //moveablePointArrayを全て確認
   for ( var mpi = 0; mpi < pointsArylen; mpi++ ) {
     var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-    moveablePosition3DObject[ mpi ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xffff00, opacity: 0.7 } ) );
+    moveablePosition3DObject[ mpi ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xffff00, opacity: 0.6 } ) );
 
     var point = moveablePointArray[ mpi ];
     moveablePosition3DObject[ mpi ].position.x = -400 + ( point[0] * 100 );
