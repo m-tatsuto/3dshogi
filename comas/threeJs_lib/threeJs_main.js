@@ -13,13 +13,15 @@ var mapComa3DObject = [];
 
 var cameraWidth = 600;
 var cameraHeight = 600;
+var radius = 2500;
+var theta = 330;
 
 init();
 
 function init() {
   camera = new THREE.PerspectiveCamera( 30, cameraWidth / cameraHeight, 1, 10000 );
-  camera.position.x = 0;
-  camera.position.y = -2500;
+  camera.position.x = radius * Math.cos( THREE.Math.degToRad( theta ) );
+  camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
   camera.position.z = 0;
   camera.lookAt({x:0,y:0,z:0});
   camera.rotation.z = 0;
@@ -247,8 +249,6 @@ function choiceGeometry( comaObj, objectColor ) {
 
 animate();
 
-var radius = 2500;
-var theta = 270;
 
 function animate() {
   // note: three.js includes requestAnimationFrame shim
@@ -295,14 +295,7 @@ function render() {
 
 function cameraRotation() {
   camera.position.x = radius * Math.cos( THREE.Math.degToRad( theta ) );
-  if ( camera.position.x < 1 && camera.position.x > -1 ) {
-	  camera.position.x = 0;
-  }
-
   camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
-  if ( camera.position.y < 1 && camera.position.y > -1 ) {
-	  camera.position.y = 0;
-  }
 
   camera.lookAt({x:0,y:0,z:0});
 
