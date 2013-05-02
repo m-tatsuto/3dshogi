@@ -1,6 +1,6 @@
 ## 3次元将棋（仮名：空将)
 ### 各駒の動き
-- 歩 [リンク](http://kusho.knowpic.com/comas/?coma=fu)
+- [歩](http://kusho.knowpic.com/comas/?coma=fu){:target="_blank"}
 - 香車
 - 桂馬
 - 銀
