@@ -13,8 +13,6 @@ function threeJsMoveAnimation( x, y, z ) {
 	var numberOfMapObject = (comaObjectPointX * 81) + (comaObjectPointY * 9) + comaObjectPointZ;
 	var intervaltime = 1000 / animationSeparateTime;
 
-	console.log(intervaltime);
-
 	moveAnimationTimer = setInterval( moveAnimation , intervaltime );
 
 	var animationCount = 0;

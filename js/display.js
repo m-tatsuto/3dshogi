@@ -117,7 +117,6 @@ function moveDomComaObject(x, y, z) {
   }
   resetObjectSelect();  
   resetObjectMoveablePosition();
-  //setThreeJs3dMapObject();
 }
 
 /**
