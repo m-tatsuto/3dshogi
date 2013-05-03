@@ -42,13 +42,16 @@ function mapControllerDisplay(){
 
 
         if(selectObj !== null){
+
           if ( ( ( selectObj.camp == 0 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 1 ) && ( focusViewFlag == 1 ) ) ) {  
             tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='sentecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
           } else if ( ( ( selectObj.camp == 1 ) && ( focusViewFlag == 0 ) ) || ( ( selectObj.camp == 0 ) && ( focusViewFlag == 1 ) ) ) {
             tableHtmlSource += " <td width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "' class='gotecoma'>" + selectObj.name.substring(0,1) + selectObj.camp + "</td>\n";
           }
+
           selectObj = null;
         } else {
+
           if(selectStockFlag) {
             moveableColor = "bgcolor='#00ff00'";
             clickfunctionString = "setDomStockComaObject(" + selectDomComaObjectParam + ")";
@@ -56,9 +59,12 @@ function mapControllerDisplay(){
 
           tableHtmlSource += " <td  width='30' height='30' " + moveableColor + " onclick='" + clickfunctionString + "'></td>\n";
         }
+
       }
+
       tableHtmlSource += "</tr>\n";
     }
+
     tableHtmlSource += "</table>\n";
     document.getElementById("setcoma").innerHTML += tableHtmlSource + "</br>";
   }
@@ -106,11 +112,12 @@ function selectDomComaObject(x, y, z) {
  */
 function moveDomComaObject(x, y, z) {
   if (confirm(x + "" + y + "" + z + "に移動しますか？")) {
+    threeJsMoveAnimation( x, y, z );
     movePosition( x, y, z );
   }
   resetObjectSelect();  
   resetObjectMoveablePosition();
-  setThreeJs3dMapObject();
+  //setThreeJs3dMapObject();
 }
 
 /**
