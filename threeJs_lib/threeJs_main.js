@@ -17,6 +17,7 @@ var radius = 2500;
 var theta = 330;
 var thetaRotationValue = 3.5;
 var radiusMoveSpeed = 10;
+var canUseWebgl = null;
 
 init();
 
@@ -31,9 +32,11 @@ function init() {
   scene = new THREE.Scene();
 
   try {
+    canUseWebgl = true;
     thetaRotationValue = 1.6;
     renderer = new THREE.WebGLRenderer({antialias:0});
   } catch (e) {
+    canUseWebgl = false;
     radiusMoveSpeed = 20;
     renderer = new THREE.CanvasRenderer();
   }
@@ -163,7 +166,11 @@ function choiceGeometry( comaObj, objectColor ) {
 
   switch( comaObj.name ) {
     case "歩" :
-      comaGeometry = new THREE.SphereGeometry( 15 );
+      if ( canUseWebgl ) {
+        comaGeometry = new THREE.SphereGeometry( 15, 12, 12 );
+      } else {
+        comaGeometry = new THREE.SphereGeometry( 15 );
+      }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
@@ -186,12 +193,20 @@ function choiceGeometry( comaObj, objectColor ) {
       break;
 
     case "銀" :
-      comaGeometry = new THREE.SphereGeometry( 30 );
+      if ( canUseWebgl ) {
+        comaGeometry = new THREE.SphereGeometry( 40, 15, 13, 0, (Math.PI * 1.95));
+      } else {
+        comaGeometry = new THREE.SphereGeometry( 40, 8, 6, 0, (Math.PI * 1.95));
+      }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
     case "金" :
-      comaGeometry = new THREE.SphereGeometry( 45 );
+      if ( canUseWebgl ) {
+        comaGeometry = new THREE.SphereGeometry( 40, 15, 15 );
+      } else {
+        comaGeometry = new THREE.SphereGeometry( 40, 8, 6 );
+      }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
