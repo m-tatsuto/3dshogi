@@ -11,8 +11,8 @@ var moveablePosition3DObject = [];
 var mapComa3DObject = [];
 
 
-var cameraWidth = 600;
-var cameraHeight = 600;
+var cameraWidth = 630;
+var cameraHeight = 630;
 var radius = 2500;
 var theta = 330;
 var thetaRotationValue = 3.5;
@@ -30,6 +30,7 @@ function init() {
   camera.rotation.z = 0;
 
   scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.00002);
 
   try {
     canUseWebgl = true;
@@ -194,24 +195,28 @@ function choiceGeometry( comaObj, objectColor ) {
 
     case "銀" :
       if ( canUseWebgl ) {
-        comaGeometry = new THREE.SphereGeometry( 40, 15, 13, 0, (Math.PI * 1.95));
+        comaGeometry = new THREE.SphereGeometry( 25, 15, 13);
       } else {
-        comaGeometry = new THREE.SphereGeometry( 40, 8, 6, 0, (Math.PI * 1.95));
+        comaGeometry = new THREE.SphereGeometry( 40, 8, 6);
       }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
     case "金" :
       if ( canUseWebgl ) {
-        comaGeometry = new THREE.SphereGeometry( 40, 15, 15 );
+        comaGeometry = new THREE.SphereGeometry( 35, 15, 15 );
       } else {
-        comaGeometry = new THREE.SphereGeometry( 40, 8, 6 );
+        comaGeometry = new THREE.SphereGeometry( 35, 8, 6 );
       }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
     case "成金" :
-      comaGeometry = new THREE.SphereGeometry( 45 );
+      if ( canUseWebgl ) {
+        comaGeometry = new THREE.SphereGeometry( 35, 15, 15 );
+      } else {
+        comaGeometry = new THREE.SphereGeometry( 35, 8, 6 );
+      }
       comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
       break;
 
