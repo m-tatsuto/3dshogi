@@ -13,7 +13,7 @@ var mapComa3DObject = [];
 
 var cameraWidth = 630;
 var cameraHeight = 630;
-var radius = 2500;
+var radius = 2300;
 var theta = 330;
 var thetaRotationValue = 3.5;
 var radiusMoveSpeed = 10;
@@ -22,7 +22,7 @@ var canUseWebgl = null;
 init();
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 30, cameraWidth / cameraHeight, 1, 10000 );
+  camera = new THREE.PerspectiveCamera( 40, cameraWidth / cameraHeight, 1, 10000 );
   camera.position.x = radius * Math.cos( THREE.Math.degToRad( theta ) );
   camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
   camera.position.z = 0;
