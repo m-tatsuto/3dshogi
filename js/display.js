@@ -71,21 +71,49 @@ function mapControllerDisplay(){
 
   var zone0 = mainGameField.zone0;
   var zone1 = mainGameField.zone1;
+  var stockComaCounterZone0 = {
+	  "歩" : 0,
+	  "香車" : 0,
+	  "桂馬" : 0,
+	  "銀" : 0,
+	  "金" : 0,
+	  "角" : 0,
+	  "飛車" : 0
+  };
+  var stockComaCounterZone1 = {
+	  "歩" : 0,
+	  "香車" : 0,
+	  "桂馬" : 0,
+	  "銀" : 0,
+	  "金" : 0,
+	  "角" : 0,
+	  "飛車" : 0
+  };
 
   document.getElementById("zone0Coma").innerHTML = "先手持駒 </br>";
 
   var zone0Len = zone0.stock.length;
   for (var i = 0; i < zone0Len; i++){
-    var functionString = "selectStockTest(0," + i + ")";
-    document.getElementById("zone0Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone0.stock[i].name + "</button></br>";
+    stockComaCounterZone0[ zone0.stock[i].name ]++;
+    if ( stockComaCounterZone0[ zone0.stock[i].name ] <= 1 ) {
+	    var functionString = "selectStockTest(0," + i + ")";
+	    document.getElementById("zone0Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone0.stock[i].name + "</button><span id='zone0NumberOf" + zone0.stock[i].name + "'></span></br>";
+    } else if ( stockComaCounterZone0[ zone0.stock[i].name ] > 1 ) {
+	    document.getElementById("zone0NumberOf" + zone0.stock[i].name).innerHTML = "x" + stockComaCounterZone0[ zone0.stock[i].name ];
+    }
   }
 
   document.getElementById("zone1Coma").innerHTML = "後手持駒 </br>";
 
   var zone1Len = zone1.stock.length;
   for (var i = 0; i < zone1Len; i++){
-    var functionString = "selectStockTest(1," + i + ")";
-    document.getElementById("zone1Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone1.stock[i].name + "</button></br>";
+    stockComaCounterZone1[ zone1.stock[i].name ]++;
+    if ( stockComaCounterZone1[ zone1.stock[i].name ] <= 1 ) {
+	    var functionString = "selectStockTest(1," + i + ")";
+	    document.getElementById("zone1Coma").innerHTML += "<button onclick='" + functionString + "'>" + zone1.stock[i].name + "</button><span id='zone1NumberOf" + zone1.stock[i].name + "'></span></br>";
+    } else if ( stockComaCounterZone1[ zone1.stock[i].name ] > 1 ) {
+	    document.getElementById("zone1NumberOf" + zone1.stock[i].name).innerHTML = "x" + stockComaCounterZone1[ zone1.stock[i].name ];
+    }
   }
 
   var turnString = "";
