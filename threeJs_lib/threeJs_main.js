@@ -1,5 +1,3 @@
-var AroundlineColor = 0x0000ff;
-var InnerlineColor = 0x00ffff;
 var comaObjectOpacity = 1.0;
 var camera, scene, renderer;
 var geometry, material, mesh;
@@ -30,7 +28,7 @@ function init() {
   camera.rotation.z = 0;
 
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.00002);
+  //scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.00002);
 
   try {
     canUseWebgl = true;
@@ -48,16 +46,20 @@ function init() {
   make3DshougiFrameObject();
 }
 
+var selectLineObject = [];
+
 function addObjectSelectPosition( x, y, z ) {
 
   resetObjectSelect();
 
-  var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-  select3DObject = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x999900, opacity: 0.4 } ) );
+  var geometry   = new THREE.CubeGeometry( 100, 100, 100 );
+  select3DObject = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x999900,  transparent: true, opacity: 0.4 } ) );
   select3DObject.position.x = -400 + ( x * 100 );
   select3DObject.position.y = -400 + ( y * 100 );
   select3DObject.position.z = -400 + ( z * 100 );
   scene.add( select3DObject );
+
+  makeSelectLineObject( x, y, z );
 
   animate_is_update = true;
 }
@@ -66,6 +68,11 @@ function resetObjectSelect() {
   if ( select3DObject ) {
     scene.remove( select3DObject );
     select3DObject = null;
+  }
+
+  if ( selectLineObject ) {
+    deleteSelectLine();
+    selectLineObject = [];
   }
 
   animate_is_update = true;
@@ -87,7 +94,7 @@ function addObjectMoveablePosition() {
   //moveablePointArrayを全て確認
   for ( var mpi = 0; mpi < pointsArylen; mpi++ ) {
     var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-    moveablePosition3DObject[ mpi ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xffff00, opacity: 0.6 } ) );
+    moveablePosition3DObject[ mpi ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0xffff00,  transparent: true, opacity: 0.6 } ) );
 
     var point = moveablePointArray[ mpi ];
     moveablePosition3DObject[ mpi ].position.x = -400 + ( point[0] * 100 );
@@ -147,7 +154,7 @@ function setThreeJs3dMapObject() {
 
         } else if ( !mapObject && selectStockFlag ) {
           var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-          mapComa3DObject[ numberOfMapObject ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x00ff00, opacity: 0.1 } ) );
+          mapComa3DObject[ numberOfMapObject ] = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: 0x00ff00,  transparent: true, opacity: 0.1 } ) );
           mapComa3DObject[ numberOfMapObject ].position.x = -400 + ( c3xi * 100 );
           mapComa3DObject[ numberOfMapObject ].position.y = -400 + ( c3yj * 100 );
           mapComa3DObject[ numberOfMapObject ].position.z = -400 + ( c3zk * 100 );
@@ -172,7 +179,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else {
         comaGeometry = new THREE.SphereGeometry( 15 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "桂馬" :
@@ -181,7 +188,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 20, 10, 30, 8, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, shading: THREE.FlatShading, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, shading: THREE.FlatShading,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "香車" :
@@ -190,7 +197,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 20, 0, 40, 3, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, shading: THREE.FlatShading, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, shading: THREE.FlatShading,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "銀" :
@@ -199,7 +206,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else {
         comaGeometry = new THREE.SphereGeometry( 40, 8, 6);
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "金" :
@@ -208,7 +215,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else {
         comaGeometry = new THREE.SphereGeometry( 35, 8, 6 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "成金" :
@@ -217,7 +224,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else {
         comaGeometry = new THREE.SphereGeometry( 35, 8, 6 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "飛車" :
@@ -226,7 +233,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 40, 0, 90, 3, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "竜" :
@@ -235,7 +242,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 40, 0, 90, 5, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "角" :
@@ -244,7 +251,7 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 30, 15, 70, 4, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "馬" :
@@ -253,17 +260,17 @@ function choiceGeometry( comaObj, objectColor ) {
       } else if ( comaObj.camp == 1 ) {
         comaGeometry = new THREE.CylinderGeometry( 30, 15, 70, 6, 1 );
       }
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "玉" :
       comaGeometry = new THREE.TorusGeometry( 40, 20, 15, 30 );
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
 
     case "王" :
       comaGeometry = new THREE.TorusGeometry( 40, 20, 15, 30 );
-      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor, opacity: comaObjectOpacity } );
+      comaMaterial = new THREE.MeshBasicMaterial( { color: objectColor,  transparent: true, opacity: comaObjectOpacity } );
       break;
   }
 
