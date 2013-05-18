@@ -1,2 +1,12 @@
-## 3次元チェス（仮名：Space)
+## 三次元将棋（仮名：空将)
 ### 各駒の動き
+- [歩](http://kusho.knowpic.com/comas/?coma=fu)
+- [香車](http://kusho.knowpic.com/comas/?coma=kyosha)
+- [桂馬](http://kusho.knowpic.com/comas/?coma=keima)
+- [銀](http://kusho.knowpic.com/comas/?coma=gin)
+- [金・成金](http://kusho.knowpic.com/comas/?coma=kin)
+- [角](http://kusho.knowpic.com/comas/?coma=kaku)
+- [馬](http://kusho.knowpic.com/comas/?coma=uma)
+- [飛車](http://kusho.knowpic.com/comas/?coma=hisha)
+- [竜](http://kusho.knowpic.com/comas/?coma=ryu)
+- [玉・王](http://kusho.knowpic.com/comas/?coma=gyoku)
