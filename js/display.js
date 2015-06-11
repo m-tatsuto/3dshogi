@@ -129,7 +129,7 @@ function mapControllerDisplay(){
 
 function selectDomComaObject(x, y, z) {
   addObjectSelectPosition( x, y, z );  
-  document.getElementById("positionValue").innerHTML = x + "" + y + "" + z;
+  document.getElementById("positionValue").innerHTML = x + "-" + y + "-" + z;
   selectPosition( x, y, z );
   addObjectMoveablePosition();
   setThreeJs3dMapObject();
