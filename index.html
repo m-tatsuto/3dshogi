@@ -2,7 +2,7 @@
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8">
-    <title>三次元将棋 空将</title>
+		<title>三次元将棋 空将</title>
 		<link rel="stylesheet" href="css/coma.css" />
 		<link rel="stylesheet" href="css/buttons.css" />
 		<link rel="stylesheet" href="css/threeJsMap.css" />
@@ -26,10 +26,10 @@
 			Position : <span id="positionValue"></span>
 		</div>
 		<div style="position:fixed;bottom:0px;right:0px;z-index:1;">
-			<span>Copyright (c) 2013 3dshougi developer</span>
 			<button onclick="gameRestart();" style="" class="button red">はじめから</button>
 			<button onclick="loadGame();" style="" class="button blue">つづきから</button>
 			<button onclick="saveGame();" style="" class="button green">保存</button>
+			<span><simpla-text sid="copyright-shougi" inline></simpla-text></span>
 		</div>
 
 		<div id="setcoma" style="position:absolute;left:0px;padding:25px;margin-top:35px;">空盤</div>
@@ -52,15 +52,18 @@
 		<script type="text/javascript" src="threeJs_lib/threeJs_viewController.js"></script>
 		<script type="text/javascript" src="threeJs_lib/threeJs_main.js"></script>
 		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-29429033-3']);
-			_gaq.push(['_trackPageview']);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-29429033-3']);
+_gaq.push(['_trackPageview']);
 
-			(function() {
-			 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			 })();
-		 </script>
-	 </body>
- </html>
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+		</script>
+	</body>
+
+	<script src="https://app.simpla.io"></script>
+	<script>Simpla('SysIN29Fl');</script>
+</html>
